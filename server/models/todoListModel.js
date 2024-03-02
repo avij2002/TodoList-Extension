@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
-const todoListSchema = mongoose.Schema({
-  task: { type: String, require },
+const TodoListSchema = mongoose.Schema({
+  task: { type: String, require, unique: true },
 });
-module.exports = mongoose.model("TodoList", todoListSchema);
+const Task = mongoose.model("TodoList", TodoListSchema);
+Task.createIndexes();
+module.exports = Task;
